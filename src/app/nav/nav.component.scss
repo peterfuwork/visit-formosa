@@ -1,0 +1,32 @@
+a.navbar-brand {
+    white-space: normal;
+    text-align: center;
+    word-break: break-all;
+  }
+  
+  .box-shadow {
+    box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .05);
+  }
+  
+  #dropdown2 {
+    &.showtwo {
+      display: inline-block;
+      opacity: 1;
+      right: 0;
+    }
+  }
+  
+  #dropdown1 {
+    &.show {
+      display: inline-block;
+      opacity: 1;
+      right: 144px;
+    }
+  }
+
+  .link-active {
+    a {
+      background-color:beige;
+      color:#333;
+    }
+  }

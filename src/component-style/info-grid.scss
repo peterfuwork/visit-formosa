@@ -1,0 +1,45 @@
+.info-grid {
+    .info-box {
+        border: 1px solid #ccc;
+        border-radius: 4px 4px 0 0;
+        margin:0 0 1rem 0;
+        .img-container {
+            img {
+                cursor:pointer;
+                border-radius: 4px 4px 0 0;
+                max-width:100%;
+            }
+        }
+        .img-info {
+            padding: .5rem 1rem;
+            .title {
+                color:hotpink;
+            }
+            .description {
+                color:#000;
+                font-style:italic;
+            }
+            .rate-box {
+                .col {
+                    border-right:1px solid #ccc;
+                    &:last-child {
+                        border-right:none;
+                    }
+                    .small-title {
+                        color:#ccc;
+                        font-size:.8rem;
+                    }
+                }
+            }
+        }
+        &:hover {
+            -webkit-transition: .25s;
+            transition: .25s;
+            -webkit-transform: translateY(-2px);
+            transform: translateY(-2px);
+            -webkit-box-shadow: 0 2px 20px 0 rgba(0,0,0,.2), 0 0 0 1px rgba(0,0,0,.05);
+            box-shadow: 0 2px 20px 0 rgba(0,0,0,.2), 0 0 0 1px rgba(0,0,0,.05);
+        }
+    }
+    
+}

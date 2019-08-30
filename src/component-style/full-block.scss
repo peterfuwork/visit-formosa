@@ -1,0 +1,85 @@
+.full-block {
+    background-color:transparent;
+    position:relative;
+    max-width: 1280px;
+    margin: 0 auto 2rem;
+    img {
+        text-decoration: underline;
+        max-width: 100%;
+        &.mobile {
+            display: none;
+            @media(max-width:767px) {
+                display:block;
+            }
+        }
+        &.desktop {
+            @media(max-width:767px) {
+                display:none;
+            }
+        }
+    }
+    .info {
+        &.infoOnLeft {
+            left: 10%;
+            @media(max-width:767px) {
+                left: 0;
+            }
+        }
+        &.infoOnReft {
+            right: 10%;
+            @media(max-width:767px) {
+                right: 0;
+            }
+        }
+        position: absolute;
+        top: 24%;
+        padding: 1rem;
+        @media(max-width:767px) {
+            position: relative;
+            top: 0;
+            padding: 1rem;
+            text-align: center;
+        }
+        img {
+            position: absolute;
+            top: -16%;
+            left: -19%;
+            @media(max-width:767px) {
+                position: relative;
+                top: 0;
+                left: 0;
+            }
+        }
+        .title {
+            font-size:2rem;
+            font-family: 'Open Sans Condensed', sans-serif;
+            line-height:1.2;
+            color:#333;
+            margin:1rem 0;
+            text-shadow: 1px 1px 1px #ccc;
+        }
+        .subtitle {
+            font-size: 1rem;
+            font-family: 'Open Sans Condensed', sans-serif;
+            line-height: 1.2;
+            color: #ccc;
+            margin: 1rem 0;
+        }
+        .cta-wrapper {
+            margin: 1rem .3rem 1rem 0;
+            display: inline-block;
+            .cta {
+                border: 1px solid #000;
+                padding: .6rem .8rem;
+                color: #000;
+                line-height: 3;
+                &:hover {
+                    color: #fff;
+                    background-color:#000;
+                    text-decoration: none;
+                }
+            }
+        }
+    }
+}
+
