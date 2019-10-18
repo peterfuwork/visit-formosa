@@ -16,7 +16,9 @@ import { AuthService } from './services/auth.service';
 import { RestaurantService } from './services/restaurant.service';
 import { LoginComponent } from './login/login.component';
 import { FoodDetailComponent } from './food-detail/food-detail.component';
+import { PostRestaurantComponent } from './post-restaurant/post-restaurant.component';
 
+import { AuthGuard } from './guards/auth.guard';
 @NgModule({
   declarations: [
     AppComponent,
@@ -25,7 +27,8 @@ import { FoodDetailComponent } from './food-detail/food-detail.component';
     TravelComponent,
     FooterComponent,
     LoginComponent,
-    FoodDetailComponent
+    FoodDetailComponent,
+    PostRestaurantComponent
   ],
   imports: [
     BrowserModule,
@@ -39,7 +42,8 @@ import { FoodDetailComponent } from './food-detail/food-detail.component';
   ],
   providers: [
     AuthService,
-    RestaurantService
+    RestaurantService,
+    AuthGuard
   ],
   bootstrap: [AppComponent]
 })

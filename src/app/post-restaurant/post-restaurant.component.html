@@ -1,0 +1,24 @@
+<div>
+    <h2>Post Restaurant</h2>
+    <form [formGroup]="postForm" (ngSubmit)="createInfo(postForm.value)">
+        <mat-form-field>
+          <input matInput type="text" id="contact_restaurant_name" placeholder="Restaurant Name" autocomplete="off" formControlName="contact_restaurant_name" required>
+        </mat-form-field>
+
+        <mat-form-field>
+          <input matInput type="text" id="contact_restaurant_phone" placeholder="Restaurant Phone" autocomplete="off" formControlName="contact_restaurant_phone" required>
+        </mat-form-field>
+
+        <mat-form-field>
+          <input matInput type="text" id="contact_restaurant_address" placeholder="Restaurant Address" autocomplete="off" formControlName="contact_restaurant_address" required>
+        </mat-form-field>
+
+        <mat-form-field>
+          <textarea matTextareaAutosize matAutosizeMinRows=3 matAutosizeMaxRows=10 matInput type="text" id="intro_restaurant_desc" placeholder="Restaurant Description" autocomplete="off" formControlName="intro_restaurant_desc" required></textarea>
+        </mat-form-field>
+
+        <div class="actions">
+          <button mat-raised-button color="primary" type="submit" [disabled]="!postForm.valid">Save</button>
+        </div>
+    </form>
+</div>
