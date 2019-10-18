@@ -1,5 +1,9 @@
 import { BrowserModule } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
+import { HttpClientModule } from '@angular/common/http';
+import { MatButtonModule, MatFormFieldModule, MatInputModule } from '@angular/material';
+import { ReactiveFormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -7,6 +11,11 @@ import { FoodComponent } from './food/food.component';
 import { NavComponent } from './nav/nav.component';
 import { TravelComponent } from './travel/travel.component';
 import { FooterComponent } from './footer/footer.component';
+import { AuthService } from './services/auth.service';
+
+import { RestaurantService } from './services/restaurant.service';
+import { LoginComponent } from './login/login.component';
+import { FoodDetailComponent } from './food-detail/food-detail.component';
 
 @NgModule({
   declarations: [
@@ -14,13 +23,24 @@ import { FooterComponent } from './footer/footer.component';
     FoodComponent,
     NavComponent,
     TravelComponent,
-    FooterComponent
+    FooterComponent,
+    LoginComponent,
+    FoodDetailComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    BrowserAnimationsModule,
+    AppRoutingModule,
+    HttpClientModule,
+    ReactiveFormsModule,
+    MatButtonModule,
+    MatFormFieldModule,
+    MatInputModule
   ],
-  providers: [],
+  providers: [
+    AuthService,
+    RestaurantService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

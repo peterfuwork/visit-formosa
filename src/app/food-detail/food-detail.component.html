@@ -1,0 +1,40 @@
+
+<div class="container-fluid">
+    <div class="row">
+      <a mat-stroked-button [routerLink]='["/food"]'>Back</a>
+      <a *ngIf="authService.isAuthenticated$" mat-stroked-button class="edit-button" (click)="editInfo()">Edit</a>
+    </div>
+    <div class="content-box">
+      <div>
+        <h1>{{ name_value }}</h1>
+        <div><strong>Phone:</strong>&nbsp;{{ phone_value }}</div>
+        <div><strong>Address:</strong>&nbsp;{{ address_value }}</div>
+        <img src="{{ image_value }}">
+        <div><strong>Description:</strong>&nbsp;{{ description_value }}</div>
+        
+        <form *ngIf="showEditContent === true" class="edit-form" [formGroup]="editForm" (ngSubmit)="saveInfo(editForm.value)">
+            <h5>Update the contents</h5>
+
+            <mat-form-field>
+              <input [(ngModel)]="name_value" matInput type="text" id="contact_restaurant_name" placeholder="Restaurant Name" autocomplete="off" formControlName="contact_restaurant_name" required>
+            </mat-form-field>
+
+            <mat-form-field>
+              <input [(ngModel)]="phone_value" matInput type="text" id="contact_restaurant_phone" placeholder="Restaurant Phone" autocomplete="off" formControlName="contact_restaurant_phone" required>
+            </mat-form-field>
+
+            <mat-form-field>
+              <input [(ngModel)]="address_value" matInput type="text" id="contact_restaurant_address" placeholder="Restaurant Address" autocomplete="off" formControlName="contact_restaurant_address" required>
+            </mat-form-field>
+
+            <mat-form-field>
+              <textarea [(ngModel)]="description_value" matTextareaAutosize matAutosizeMinRows=3 matAutosizeMaxRows=10 matInput type="text" id="intro_restaurant_desc" placeholder="Restaurant Description" autocomplete="off" formControlName="intro_restaurant_desc" required></textarea>
+            </mat-form-field>
+
+            <div class="actions">
+              <button mat-raised-button color="primary" type="submit" [disabled]="!editForm.valid">Save</button>
+            </div>
+        </form>
+      </div>
+    </div>
+</div>

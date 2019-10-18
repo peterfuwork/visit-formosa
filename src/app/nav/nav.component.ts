@@ -1,5 +1,5 @@
 import { Component, OnInit, Directive, ElementRef, Output, EventEmitter, HostListener} from '@angular/core';
-
+import { AuthService } from '../services/auth.service';
 @Component({
   selector: 'app-nav',
   templateUrl: './nav.component.html',
@@ -7,11 +7,14 @@ import { Component, OnInit, Directive, ElementRef, Output, EventEmitter, HostLis
 })
 
 export class NavComponent implements OnInit {
+  constructor(
+    private _elementRef: ElementRef,
+    public authService: AuthService
+  ) {}
 
-  constructor(private _elementRef: ElementRef) {
-  }
   isExpanded = false;
   isExpandedTwo = false;
+  isAuthenticated: Boolean;
 
   @Output()
     public clickOutside = new EventEmitter<MouseEvent>();
@@ -31,6 +34,11 @@ export class NavComponent implements OnInit {
     }
 
   ngOnInit() {
+    this.isAuthenticated = this.authService.isLoggedIn();
+  }
+
+  logout() {
+    this.isAuthenticated = this.authService.logout();
   }
 
   collapse() {
