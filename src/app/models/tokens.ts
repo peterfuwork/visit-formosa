@@ -1,6 +1,6 @@
 export class Tokens {
     token: string;
-    userEmail: string;
-    userDisplayName: string;
-    // refreshToken: string;
+    user_email: string;
+    user_nicename: string;
+    user_display_name: string;
   }

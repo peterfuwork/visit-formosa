@@ -8,7 +8,6 @@ import { AuthService } from './services/auth.service';
 })
 export class AppComponent implements OnInit {
   title = 'visit-formosa';
-
   constructor(
     public authService: AuthService
   ) {}

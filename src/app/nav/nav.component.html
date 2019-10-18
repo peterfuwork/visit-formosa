@@ -13,6 +13,7 @@
           [attr.aria-expanded]="isExpanded" (click)="toggle()">Dropdown<i class="material-icons right">arrow_drop_down</i></a></li>
         <li><a class="dropdown-trigger" data-toggle="dropdown-content" data-target="#dropdown2" aria-label="ToggleTwo navigation"
           [attr.aria-expanded]="isExpanded" (click)="toggletwo()">Dropdown2<i class="material-icons right">arrow_drop_down</i></a></li>
+        <li><div *ngIf="!!authService.getUser()">Hi!, {{ authService.getUser() }}</div></li>
         <li>
           <a *ngIf="authService.isAuthenticated$" [routerLink]='["/"]' (click)="logout()">Logout</a>
           <a *ngIf="!authService.isAuthenticated$" [routerLink]='["/login"]'>Login</a>

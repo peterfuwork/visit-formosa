@@ -11,8 +11,7 @@ import { Tokens } from '../models/tokens';
 export class AuthService {
   isAuthenticated$: boolean;
   private readonly JWT_TOKEN = 'JWT_TOKEN';
-  private loggedUser: string;
-
+  private readonly USER = 'USER';
   constructor(
     private http: HttpClient
   ) {}
@@ -21,7 +20,7 @@ export class AuthService {
     return this.http.post<any>(`${config.apiUrl}/wp-json/jwt-auth/v1/token`, user)
       .pipe(
         tap(tokens => {
-          this.loggedUser = tokens.user_display_name;
+          console.log(tokens);
           this.doLoginUser(tokens);
         }),
         mapTo(true),
@@ -33,8 +32,8 @@ export class AuthService {
 
   logout() {
     this.removeTokens();
+    this.removeUser();
     this.isAuthenticated$ = false;
-    this.loggedUser = null;
     return this.isLoggedIn();
   }
 
@@ -46,15 +45,24 @@ export class AuthService {
     return localStorage.getItem(this.JWT_TOKEN);
   }
 
+  getUser() {
+    return localStorage.getItem(this.USER);
+  }
+
   private doLoginUser(tokens: Tokens) {
     this.storeTokens(tokens);
   }
 
   private storeTokens(tokens: Tokens) {
     localStorage.setItem(this.JWT_TOKEN, tokens.token);
+    localStorage.setItem(this.USER, tokens.user_display_name);
   }
 
   private removeTokens() {
     localStorage.removeItem(this.JWT_TOKEN);
+  }
+
+  private removeUser() {
+    localStorage.removeItem(this.USER);
   }
 }
