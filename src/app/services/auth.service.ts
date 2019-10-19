@@ -20,12 +20,15 @@ export class AuthService {
     return this.http.post<any>(`${config.apiUrl}/wp-json/jwt-auth/v1/token`, user)
       .pipe(
         tap(tokens => {
-          console.log(tokens);
           this.doLoginUser(tokens);
         }),
         mapTo(true),
         catchError(error => {
-          alert(error.error);
+          const errorMsg = document.querySelector('#error-msg');
+          errorMsg.innerHTML = 'Invalid username or password!';
+          setTimeout(function() {
+            errorMsg.innerHTML = '';
+          }, 5000);
           return of(false);
         }));
   }

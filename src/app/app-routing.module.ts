@@ -14,16 +14,15 @@ const routes: Routes = [
   {
     path: 'login',
     component: LoginComponent,
-    // canActivate: [AuthGuard]
   },
-  { path: 'food', component: FoodComponent},
+  { path: 'food', component: FoodComponent },
   { path: 'food/:id', component: FoodDetailComponent },
   {
     path: 'post',
     component: PostRestaurantComponent,
-    canActivate: [AuthGuard],
+    canActivate: [AuthGuard]
   },
-  { path: 'travel', component: TravelComponent}
+  { path: 'travel', component: TravelComponent }
 ];
 
 @NgModule({
